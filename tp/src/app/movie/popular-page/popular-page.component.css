@@ -1,0 +1,24 @@
+.movies {
+  display: flex;
+  flex-wrap: wrap;
+}
+movies::after {
+  content: '';
+  width: 100%;
+}
+
+.movies li {
+  text-align: center;
+  list-style: none;
+  padding: 20px 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 15%;
+}
+.movies li:hover {
+  box-shadow: 2px 2px 5px 0px #656565;
+  opacity: .8;
+}
+.movies li:last-child {
+  order: 1;
+}

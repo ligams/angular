@@ -6,13 +6,16 @@ import { PopularPageComponent } from './movie/popular-page/popular-page.componen
 import { MovieService } from './movie/movie.service';
 import { MoviePosterComponent } from './movie/movie-poster/movie-poster.component';
 import {RouterModule} from '@angular/router';
+import { MoviePageComponent } from './movie/movie-page/movie-page.component';
+import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component';
+import { MovieCreditsComponent } from './movie/movie-credits/movie-credits.component';
 
 const appRoutes = [
   {
     path: 'movie',
     children: [
       {path: 'popular', component: PopularPageComponent},
-
+      {path: ':id', component: MoviePageComponent}
     ]
   },
   {
@@ -28,7 +31,10 @@ const appRoutes = [
   declarations: [
     AppComponent,
     PopularPageComponent,
-    MoviePosterComponent
+    MoviePosterComponent,
+    MoviePageComponent,
+    MovieDetailComponent,
+    MovieCreditsComponent
   ],
   imports: [
     BrowserModule,

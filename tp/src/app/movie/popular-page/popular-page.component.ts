@@ -15,7 +15,6 @@ export class PopularPageComponent implements OnInit {
     this.movieService.popular()
       .subscribe((movies: Array<Movie>) => {
         this.movies = movies;
-        console.log(this.movies);
       });
     /*this.movies = [
       <Movie> {id:1, title: "One"},

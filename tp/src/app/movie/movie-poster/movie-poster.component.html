@@ -1,3 +1,5 @@
-<img src="{{this.posterUrl()}}">
-<h2>{{movie.title}}</h2>
-<p>{{movie.description}}</p>
+<a routerLink="/movie/{{ movie.id }}">
+  <img src="{{this.posterUrl()}}">
+</a>
+<h2><a routerLink="/movie/{{ movie.id }}">{{movie.title}}</a></h2>
+<p>{{movie.overview}}</p>

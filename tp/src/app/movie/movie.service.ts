@@ -18,4 +18,11 @@ export class MovieService {
       .map(json => plainToClass(Movie, json))
      // .do(movies => console.log(movies));
   }
+
+  public movie(id:number): Observable<Array<Movie>>{
+    return this.http.get(`api/movie/${id}`)
+      .map((res:Response) => res.json())
+      .map(json => plainToClass(Movie, json));
+  }
+
 }

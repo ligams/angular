@@ -1,0 +1,9 @@
+ul.persons{
+  list-style: none;
+}
+
+ul.persons li{
+  float:left;
+  width:20%;
+  height:300px;
+}

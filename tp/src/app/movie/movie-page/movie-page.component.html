@@ -1,3 +1,4 @@
-<p *ngIf="movie">
-  {{movie.title}}
-</p>
+<ng-container *ngIf="movie">
+  <imdb-movie-detail [movie]="movie"></imdb-movie-detail>
+
+</ng-container>

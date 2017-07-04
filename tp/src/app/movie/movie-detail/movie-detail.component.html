@@ -1,3 +1,14 @@
-<p>
-  movie-detail works!
+<a routerLink="/movies/popular">Retour</a>
+<h1>{{movie.title}}</h1>
+<img src="{{movie.poster()}}">
+<p *ngIf="movie.overview">
+  {{movie.overview}}
 </p>
+<ul *ngIf="movie.genres.length">
+  <li *ngFor="let genre of movie.genres">
+    {{genre.name}}
+  </li>
+</ul>
+<a routerLink="/movie/{{movie.id}}/credits">
+  Crédits
+</a>

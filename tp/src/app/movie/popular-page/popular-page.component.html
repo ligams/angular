@@ -1,5 +1,4 @@
 <div *ngIf="movies && movies.length">
-  <h2>Here is the list of movies</h2>
   <ul ngClass="movies">
     <li *ngFor="let movie of movies">
       <imdb-movie-poster [movie]="movie"></imdb-movie-poster>

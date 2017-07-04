@@ -1,3 +1,13 @@
-<p>
-  movie-credits works!
-</p>
+<ng-container *ngIf="movie">
+  <a routerLink="/movie/{{movie.id}}">
+    Retour
+  </a>
+  <imdb-movie-detail [movie]="movie"></imdb-movie-detail>
+
+
+  <ul class="persons" *ngIf="credits && credits.cast && credits.cast.length">
+    <li *ngFor="let actor of credits.cast">
+      <imdb-person [person]="actor"></imdb-person>
+    </li>
+  </ul>
+</ng-container>

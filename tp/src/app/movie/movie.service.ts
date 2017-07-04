@@ -25,4 +25,10 @@ export class MovieService {
       .map(json => plainToClass(Movie, json));
   }
 
+  public credits(id:number): Observable<Array<Movie>>{
+    return this.http.get(`api/movie/${id}/credits`)
+      .map((res:Response) => res.json())
+      .map(json =>  json);
+  }
+
 }

@@ -9,22 +9,49 @@ import {RouterModule} from '@angular/router';
 import { MoviePageComponent } from './movie/movie-page/movie-page.component';
 import { MovieDetailComponent } from './movie/movie-detail/movie-detail.component';
 import { MovieCreditsComponent } from './movie/movie-credits/movie-credits.component';
+import { PersonComponent } from './person/person/person.component';
+import { PersonPageComponent } from './person/person-page/person-page.component';
+import {PersonService} from './person/person.service';
+import { PersonDetailComponent } from './person/person-detail/person-detail.component';
+import { ScrollComponent } from './common/scroll/scroll.component';
 
 const appRoutes = [
   {
     path: 'movie',
     children: [
-      {path: 'popular', component: PopularPageComponent},
-      {path: ':id', component: MoviePageComponent}
+      {
+        path: 'popular',
+        component: PopularPageComponent
+      },
+      {
+        path: ':id',
+        children: [
+          {
+            path: '',
+            component: MoviePageComponent,
+          },
+          {
+            path:'credits',
+            component: MovieCreditsComponent
+          }
+        ]
+      }
     ]
   },
   {
     path: 'person',
     children: [
-
+      {
+        path: ':id',
+        component: PersonPageComponent
+      }
     ]
   },
-  {path: '**', redirectTo: 'movie/popular', pathMatch: 'full'}
+  {
+    path: '**',
+    redirectTo: 'movie/popular',
+    pathMatch: 'full'
+  }
 ];
 
 @NgModule({
@@ -34,14 +61,18 @@ const appRoutes = [
     MoviePosterComponent,
     MoviePageComponent,
     MovieDetailComponent,
-    MovieCreditsComponent
+    MovieCreditsComponent,
+    PersonComponent,
+    PersonPageComponent,
+    PersonDetailComponent,
+    ScrollComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [MovieService],
+  providers: [MovieService, PersonService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

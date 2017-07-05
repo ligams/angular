@@ -1,7 +1,48 @@
-<div *ngIf="movies && movies.length">
-  <ul ngClass="movies">
-    <li *ngFor="let movie of movies">
-      <imdb-movie-poster [movie]="movie"></imdb-movie-poster>
-    </li>
-  </ul>
-</div>
+
+
+
+<md-toolbar color="primary">
+  <imdb-menu></imdb-menu>
+</md-toolbar>
+
+
+<md-tab-group>
+
+  <md-tab label="Films populaires">
+
+    <div *ngIf="movies && movies.length; then trueBlock; else falseBlock">this is ignored</div>
+    <ng-template #trueBlock>
+    <md-grid-list class="mat-grid-list" cols="5" rowHeight="0.7:1" *ngIf="movies && movies.length">
+
+
+
+
+        <div *ngIf="movies && movies.length">
+          <md-grid-tile class="mat-grid-tile" *ngFor="let movie of movies" [style.background]="lightblue">
+            <imdb-movie-poster [movie]="movie"></imdb-movie-poster>
+          </md-grid-tile>
+        </div>
+
+
+
+
+
+
+
+    </md-grid-list>
+    </ng-template>
+    <ng-template #falseBlock>
+     <div align="center"> <md-spinner></md-spinner></div>
+    </ng-template>
+  </md-tab>
+  <md-tab label="Ici, y'a rien">
+    How how how
+
+  </md-tab>
+</md-tab-group>
+
+
+
+
+
+

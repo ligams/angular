@@ -22,3 +22,7 @@ movies::after {
 .movies li:last-child {
   order: 1;
 }
+.progress{
+  width:200px;
+  height:200px;
+}

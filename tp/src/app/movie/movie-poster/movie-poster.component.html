@@ -1,5 +1,19 @@
-<a routerLink="/movie/{{ movie.id }}">
-  <img src="{{this.posterUrl()}}">
-</a>
-<h2><a routerLink="/movie/{{ movie.id }}">{{movie.title}}</a></h2>
-<p>{{movie.overview}}</p>
+<md-card class="card-poster">
+  <md-card-header>
+    <div md-card-avatar >
+      <md-icon>subscriptions</md-icon>
+    </div>
+    <md-card-title>{{movie.title}}</md-card-title>
+    <md-card-subtitle>Dog Breed</md-card-subtitle>
+  </md-card-header>
+  <img md-card-image src="{{this.posterUrl()}}" class="poster">
+  <md-card-content>
+
+  </md-card-content>
+  <md-card-actions>
+    <button md-button  (click)="showDetail(movie)">Details</button>
+    <button md-button routerLink="/movie/{{ movie.id }}">Voir</button>
+  </md-card-actions>
+</md-card>
+
+

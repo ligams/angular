@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {Component, NgModule} from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { PopularPageComponent } from './movie/popular-page/popular-page.component';
@@ -14,6 +14,14 @@ import { PersonPageComponent } from './person/person-page/person-page.component'
 import {PersonService} from './person/person.service';
 import { PersonDetailComponent } from './person/person-detail/person-detail.component';
 import { ScrollComponent } from './common/scroll/scroll.component';
+import { MenuComponent } from './common/menu/menu.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {MaterialModule, MdAutocompleteModule, MdInputModule, MdSidenavModule, MdSlider} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {SearchService} from './movie/search.service';
+import 'hammerjs';
+import { DialogComponent } from './common/dialog/dialog.component';
+import {EventManagerService} from './eventmanager.service';
 
 const appRoutes = [
   {
@@ -55,6 +63,9 @@ const appRoutes = [
 ];
 
 @NgModule({
+  entryComponents: [
+    DialogComponent
+  ],
   declarations: [
     AppComponent,
     PopularPageComponent,
@@ -65,14 +76,24 @@ const appRoutes = [
     PersonComponent,
     PersonPageComponent,
     PersonDetailComponent,
-    ScrollComponent
+    ScrollComponent,
+    MenuComponent,
+    DialogComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MdAutocompleteModule,
+    MdInputModule,
+    MaterialModule,
+    MdSidenavModule,
+    BrowserAnimationsModule,
+
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [MovieService, PersonService],
+  providers: [MovieService, PersonService, SearchService, EventManagerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

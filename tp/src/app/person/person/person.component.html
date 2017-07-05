@@ -1,0 +1,8 @@
+
+<ng-container *ngIf="person">
+  <a routerLink="/person/{{ person.id}}">
+    <img src="/api/{{person.profile_path}}"><br>
+    {{person.name}}
+  </a>
+</ng-container>
+

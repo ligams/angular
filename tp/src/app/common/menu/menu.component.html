@@ -1,0 +1,13 @@
+<md-input-container>
+  <input #box mdInput placeholder="Search..." [mdAutocomplete]="auto" [formControl]="searchText">
+</md-input-container>
+<md-autocomplete #auto="mdAutocomplete">
+  <md-option #selector *ngFor="let movie of this.movies" [value]="movie.id"  (onSelectionChange)="select($event, selector)">
+    <span>{{ movie.title }}</span>
+  </md-option>
+</md-autocomplete>
+<md-button-toggle-group>
+  <button (click)="search()">Search</button>
+</md-button-toggle-group>
+  <md-chip>{{num}}</md-chip>
+

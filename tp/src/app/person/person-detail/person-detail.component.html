@@ -1,0 +1,14 @@
+<ng-container *ngIf="person">
+  Website : <a href="{{person.homepage}}">{{person.homepage}}</a><br>
+  Birthday : {{person.birthday| date : fullDate : 'Europe/Paris' }}<br>
+  Born place : {{ person.place_of_birth}}<br><br>
+  {{person.biography}}<br>
+  <imdb-scroll>
+    <ul *ngIf="movies">
+      <li *ngFor="let movie of movies">
+        <imdb-movie-poster [movie]="movie"></imdb-movie-poster>
+      </li>
+    </ul>
+  </imdb-scroll>
+
+</ng-container>
